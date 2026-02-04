@@ -1,0 +1,121 @@
+<!-- PACKAGES SECTION - EARTH TONES -->
+<style>
+    .packages { padding: 100px 0; background: var(--bg-secondary); }
+    .packages-container { max-width: var(--container-max); margin: 0 auto; padding: 0 24px; }
+    .packages-header { text-align: center; margin-bottom: 64px; }
+    .packages-label { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; background: rgba(212, 168, 83, 0.1); border: 1px solid rgba(212, 168, 83, 0.2); border-radius: 100px; color: var(--accent); margin-bottom: 20px; }
+    .packages-title { font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin-bottom: 16px; color: var(--text-primary); }
+    .packages-subtitle { font-size: 18px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+    .packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 48px; }
+    .package-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-xl); padding: 28px; display: flex; flex-direction: column; transition: var(--transition-medium); position: relative; }
+    .package-card:hover { border-color: var(--border-medium); transform: translateY(-8px); box-shadow: var(--shadow-md); }
+    .package-card.featured { border-color: var(--primary); border-width: 2px; }
+    .package-card.featured::before { content: 'REKOMENDASI'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); padding: 6px 16px; background: var(--primary); border-radius: 100px; font-size: 10px; font-weight: 700; letter-spacing: 1px; color: white; }
+    .package-header { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border-light); }
+    .package-tier { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 6px; }
+    .package-name { font-size: 20px; font-weight: 800; color: var(--text-primary); margin-bottom: 6px; }
+    .package-price { font-size: 24px; font-weight: 800; color: var(--primary); }
+    .package-price-note { font-size: 11px; color: var(--text-muted); font-weight: 400; }
+    .package-desc { font-size: 13px; color: var(--text-secondary); margin-top: 10px; line-height: 1.5; }
+    .package-modules { margin-bottom: 20px; flex: 1; }
+    .package-modules-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 12px; }
+    .package-module { display: flex; align-items: center; gap: 8px; padding: 8px 0; font-size: 12px; }
+    .package-module-check { width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; border-radius: 50%; flex-shrink: 0; }
+    .package-module-check.yes { background: rgba(92, 107, 77, 0.15); color: var(--primary); }
+    .package-module-check.no { background: var(--bg-secondary); color: var(--text-muted); }
+    .package-module-name { color: var(--text-primary); flex: 1; }
+    .package-module-name.disabled { color: var(--text-muted); }
+    .package-cta { padding: 12px 20px; font-size: 14px; font-weight: 600; border-radius: var(--radius-md); text-align: center; cursor: pointer; transition: var(--transition-fast); text-decoration: none; display: block; }
+    .package-cta.primary { background: var(--primary); color: white; border: none; }
+    .package-cta.primary:hover { background: var(--moss); }
+    .package-cta.secondary { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
+    .package-cta.secondary:hover { background: var(--primary); color: white; }
+    .packages-ongoing { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-xl); padding: 28px; margin-bottom: 32px; }
+    .packages-ongoing-title { font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+    .packages-ongoing-title svg { color: var(--accent); }
+    .packages-ongoing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .packages-ongoing-item { padding: 16px; background: var(--bg-secondary); border-radius: var(--radius-md); }
+    .packages-ongoing-item-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 6px; }
+    .packages-ongoing-item-value { font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
+    .packages-ongoing-item-note { font-size: 11px; color: var(--text-muted); }
+    .packages-negotiate { padding: 24px; background: var(--cream); border: 1px solid var(--sand); border-radius: var(--radius-md); text-align: center; }
+    .packages-negotiate-text { font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; }
+    .packages-negotiate-text strong { color: var(--text-primary); }
+    @media (max-width: 1024px) { .packages-grid { grid-template-columns: 1fr; } .packages-ongoing-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
+
+<section class="packages" id="packages">
+    <div class="packages-container">
+        <div class="packages-header">
+            <div class="packages-label"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Opsi Paket</div>
+            <h2 class="packages-title">Pilih Sesuai Kebutuhan</h2>
+            <p class="packages-subtitle">Fleksibel — mulai dari yang paling dibutuhkan, tambah module seiring waktu</p>
+        </div>
+        <div class="packages-grid">
+            <div class="package-card">
+                <div class="package-header">
+                    <div class="package-tier">Opsi 1</div>
+                    <h3 class="package-name">Data + Dashboard</h3>
+                    <div class="package-price">Rp 30 Jt <span class="package-price-note">one-time</span></div>
+                    <p class="package-desc">Fondasi data dan visualisasi. Cocok untuk mulai dengan reporting otomatis.</p>
+                </div>
+                <div class="package-modules">
+                    <div class="package-modules-title">Yang Termasuk:</div>
+                    <div class="package-module"><span class="package-module-check yes"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span class="package-module-name">Module 1: Data Integration</span></div>
+                    <div class="package-module"><span class="package-module-check yes"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span class="package-module-name">Module 2: Dashboard & Reporting</span></div>
+                    <div class="package-module"><span class="package-module-check no"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span><span class="package-module-name disabled">Module 3: Workflow Automation</span></div>
+                    <div class="package-module"><span class="package-module-check no"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span><span class="package-module-name disabled">Module 4: Cekat AI Setup</span></div>
+                </div>
+                <a href="#next-steps" class="package-cta secondary">Pilih Opsi Ini</a>
+            </div>
+            <div class="package-card featured">
+                <div class="package-header">
+                    <div class="package-tier">Opsi 2</div>
+                    <h3 class="package-name">Full Automation</h3>
+                    <div class="package-price">Rp 42 Jt <span class="package-price-note">one-time</span></div>
+                    <p class="package-desc">Data + Dashboard + Automation. Menghilangkan pekerjaan repetitif.</p>
+                </div>
+                <div class="package-modules">
+                    <div class="package-modules-title">Yang Termasuk:</div>
+                    <div class="package-module"><span class="package-module-check yes"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span class="package-module-name">Module 1: Data Integration</span></div>
+                    <div class="package-module"><span class="package-module-check yes"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span class="package-module-name">Module 2: Dashboard & Reporting</span></div>
+                    <div class="package-module"><span class="package-module-check yes"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span class="package-module-name">Module 3: Workflow Automation</span></div>
+                    <div class="package-module"><span class="package-module-check no"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span><span class="package-module-name disabled">Module 4: Cekat AI Setup</span></div>
+                </div>
+                <a href="#next-steps" class="package-cta primary">Pilih Opsi Ini →</a>
+            </div>
+            <div class="package-card">
+                <div class="package-header">
+                    <div class="package-tier">Opsi 3</div>
+                    <h3 class="package-name">Complete Package</h3>
+                    <div class="package-price">Rp 55 Jt <span class="package-price-note">one-time</span></div>
+                    <p class="package-desc">Transformasi penuh termasuk AI CRM untuk scale custom order.</p>
+                </div>
+                <div class="package-modules">
+                    <div class="package-modules-title">Yang Termasuk:</div>
+                    <div class="package-module"><span class="package-module-check yes"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span class="package-module-name">Module 1: Data Integration</span></div>
+                    <div class="package-module"><span class="package-module-check yes"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span class="package-module-name">Module 2: Dashboard & Reporting</span></div>
+                    <div class="package-module"><span class="package-module-check yes"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span class="package-module-name">Module 3: Workflow Automation</span></div>
+                    <div class="package-module"><span class="package-module-check yes"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span class="package-module-name">Module 4: Cekat AI Setup</span></div>
+                </div>
+                <a href="#next-steps" class="package-cta secondary">Pilih Opsi Ini</a>
+            </div>
+        </div>
+        <div class="packages-ongoing">
+            <div class="packages-ongoing-title"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Biaya Bulanan (Terpisah dari Setup)</div>
+            <div class="packages-ongoing-grid">
+                <div class="packages-ongoing-item"><div class="packages-ongoing-item-label">Service Cekat Workflow</div><div class="packages-ongoing-item-value">Rp 3,8 Juta</div><div class="packages-ongoing-item-note">Maintenance & optimasi</div></div>
+                <div class="packages-ongoing-item"><div class="packages-ongoing-item-label">Maintenance Server</div><div class="packages-ongoing-item-value">Rp 1 Juta</div><div class="packages-ongoing-item-note">Hosting & infrastructure</div></div>
+                <div class="packages-ongoing-item"><div class="packages-ongoing-item-label">Minor Update & Bug Fix</div><div class="packages-ongoing-item-value">Rp 1,2 Juta</div><div class="packages-ongoing-item-note">Support & improvements</div></div>
+                <div class="packages-ongoing-item"><div class="packages-ongoing-item-label">Kredit Cekat AI</div><div class="packages-ongoing-item-value">Rp 3,8-5jt</div><div class="packages-ongoing-item-note">Usage-based (sudah dioptimasi)</div></div>
+            </div>
+            <div style="margin-top: 16px; padding: 16px; background: var(--cream); border: 1px solid var(--sand); border-radius: var(--radius-md); font-size: 13px; color: var(--text-secondary); text-align: center;">
+                <strong style="color: var(--text-primary);">Total Biaya Bulanan: Rp 9,8-11 Juta</strong><br>
+                <span style="font-size: 12px; opacity: 0.8;">*Belum termasuk OnTheTok subscription (Rp 500rb-4jt tergantung paket)</span>
+            </div>
+        </div>
+        <div class="packages-negotiate">
+            <p class="packages-negotiate-text"><strong>Budget berbeda?</strong> Scope dan timeline bisa disesuaikan. Mari diskusikan kombinasi module dan payment terms yang cocok untuk Tiento.</p>
+        </div>
+    </div>
+</section>

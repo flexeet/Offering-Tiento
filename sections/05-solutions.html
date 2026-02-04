@@ -1,0 +1,183 @@
+<!-- SOLUTIONS SECTION - EARTH TONES -->
+<style>
+    .solutions { padding: 100px 0; background: var(--bg-secondary); }
+    .solutions-container { max-width: var(--container-max); margin: 0 auto; padding: 0 24px; }
+    .solutions-header { text-align: center; margin-bottom: 64px; }
+    .solutions-label { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; background: rgba(92, 107, 77, 0.1); border: 1px solid rgba(92, 107, 77, 0.2); border-radius: 100px; color: var(--primary); margin-bottom: 20px; }
+    .solutions-title { font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin-bottom: 16px; color: var(--text-primary); }
+    .solutions-subtitle { font-size: 18px; color: var(--text-secondary); max-width: 700px; margin: 0 auto; }
+    
+    .solutions-intro { background: var(--cream); border: 1px solid var(--sand); border-radius: var(--radius-xl); padding: 32px; margin-bottom: 48px; display: flex; align-items: center; gap: 24px; }
+    .solutions-intro-icon { width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; background: var(--primary); border-radius: var(--radius-lg); flex-shrink: 0; color: white; }
+    .solutions-intro-content h3 { font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+    .solutions-intro-content p { font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin: 0; }
+    
+    .solutions-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .solution-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-xl); padding: 32px; transition: var(--transition-medium); position: relative; overflow: hidden; }
+    .solution-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; opacity: 0; transition: var(--transition-medium); }
+    .solution-card:hover { border-color: var(--border-medium); transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .solution-card:hover::before { opacity: 1; }
+    .solution-card:nth-child(1)::before { background: var(--primary); }
+    .solution-card:nth-child(2)::before { background: var(--secondary); }
+    .solution-card:nth-child(3)::before { background: var(--accent); }
+    .solution-card:nth-child(4)::before { background: var(--coffee); }
+    
+    .solution-card-header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+    .solution-icon { width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-lg); flex-shrink: 0; }
+    .solution-card:nth-child(1) .solution-icon { background: rgba(92, 107, 77, 0.1); color: var(--primary); }
+    .solution-card:nth-child(2) .solution-icon { background: rgba(196, 120, 90, 0.1); color: var(--secondary); }
+    .solution-card:nth-child(3) .solution-icon { background: rgba(212, 168, 83, 0.1); color: var(--accent); }
+    .solution-card:nth-child(4) .solution-icon { background: rgba(107, 83, 68, 0.1); color: var(--coffee); }
+    
+    .solution-module-tag { display: inline-block; padding: 4px 10px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; border-radius: 4px; margin-bottom: 8px; background: var(--bg-secondary); color: var(--text-muted); }
+    .solution-name { font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+    .solution-price { font-size: 14px; color: var(--primary); font-weight: 600; }
+    .solution-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; }
+    
+    .solution-features { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+    .solution-feature { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--text-secondary); line-height: 1.4; }
+    .solution-feature-check { width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; background: rgba(92, 107, 77, 0.1); border-radius: 50%; flex-shrink: 0; margin-top: 1px; color: var(--primary); }
+    
+    .solution-output { padding: 16px; background: var(--bg-secondary); border-radius: var(--radius-md); }
+    .solution-output-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 10px; }
+    .solution-output-list { display: flex; flex-wrap: wrap; gap: 6px; }
+    .solution-output-item { padding: 4px 10px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 4px; font-size: 11px; color: var(--text-secondary); }
+    
+    .solutions-note { margin-top: 48px; padding: 24px; background: var(--bg-card); border: 1px solid var(--border-light); border-left: 4px solid var(--primary); border-radius: var(--radius-md); }
+    .solutions-note-title { font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .solutions-note-text { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+    
+    @media (max-width: 900px) { .solutions-grid { grid-template-columns: 1fr; } .solutions-intro { flex-direction: column; text-align: center; } }
+</style>
+
+<section class="solutions" id="solutions">
+    <div class="solutions-container">
+        <div class="solutions-header">
+            <div class="solutions-label"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg> Scope of Work</div>
+            <h2 class="solutions-title">4 Module Utama</h2>
+            <p class="solutions-subtitle">Setiap module dapat diambil terpisah atau dikombinasikan sesuai kebutuhan dan budget Tiento</p>
+        </div>
+
+        <div class="solutions-intro">
+            <div class="solutions-intro-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <div class="solutions-intro-content">
+                <h3>OnTheTok Sudah Siap Pakai (SaaS)</h3>
+                <p>Platform affiliate management OnTheTok sudah tersedia sebagai SaaS — cukup subscribe Rp 500rb - 4 Juta/bulan dan langsung gunakan dengan video tutorial lengkap. Module di bawah ini adalah <strong>jasa Flexeet</strong> untuk integrasi, automation, dan optimasi.</p>
+            </div>
+        </div>
+        
+        <div class="solutions-grid">
+            <div class="solution-card">
+                <div class="solution-card-header">
+                    <div class="solution-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+                    <div>
+                        <span class="solution-module-tag">Module 1</span>
+                        <h3 class="solution-name">Data Integration & Architecture</h3>
+                        <span class="solution-price">Rp 15 Juta</span>
+                    </div>
+                </div>
+                <p class="solution-desc">Integrasi data dari berbagai sumber ke satu sistem terpusat. Fondasi penting sebelum automation bisa berjalan dengan baik.</p>
+                <div class="solution-features">
+                    <div class="solution-feature"><span class="solution-feature-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Jubelio Integration (sync order, inventory, product)</div>
+                    <div class="solution-feature"><span class="solution-feature-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Marketplace Integration (Shopee + TikTok API)</div>
+                    <div class="solution-feature"><span class="solution-feature-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Data Mapping & Cleaning (standardisasi data)</div>
+                </div>
+                <div class="solution-output">
+                    <div class="solution-output-title">Output</div>
+                    <div class="solution-output-list">
+                        <span class="solution-output-item">Connected Data Sources</span>
+                        <span class="solution-output-item">Data Flow Diagram</span>
+                        <span class="solution-output-item">Auto-sync Active</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-card-header">
+                    <div class="solution-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+                    <div>
+                        <span class="solution-module-tag">Module 2</span>
+                        <h3 class="solution-name">Dashboard & Reporting</h3>
+                        <span class="solution-price">Rp 15 Juta</span>
+                    </div>
+                </div>
+                <p class="solution-desc">Dashboard visual dan reporting otomatis. Owner tidak perlu lagi compile data manual — semua tersedia real-time.</p>
+                <div class="solution-features">
+                    <div class="solution-feature"><span class="solution-feature-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Executive Dashboard (revenue, GMV, affiliate)</div>
+                    <div class="solution-feature"><span class="solution-feature-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Operational Dashboard (stok, order, produk laris)</div>
+                    <div class="solution-feature"><span class="solution-feature-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Automated Reporting (daily/weekly via Telegram)</div>
+                </div>
+                <div class="solution-output">
+                    <div class="solution-output-title">Output</div>
+                    <div class="solution-output-list">
+                        <span class="solution-output-item">Live Dashboard</span>
+                        <span class="solution-output-item">Auto Daily Report</span>
+                        <span class="solution-output-item">Channel Breakdown</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-card-header">
+                    <div class="solution-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                    <div>
+                        <span class="solution-module-tag">Module 3</span>
+                        <h3 class="solution-name">Workflow Automation</h3>
+                        <span class="solution-price">Rp 12 Juta</span>
+                    </div>
+                </div>
+                <p class="solution-desc">Otomatisasi pekerjaan repetitif. Tim tidak perlu lagi compile data manual — sistem yang handle semuanya.</p>
+                <div class="solution-features">
+                    <div class="solution-feature"><span class="solution-feature-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Alert System (stok rendah, target miss, anomaly)</div>
+                    <div class="solution-feature"><span class="solution-feature-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Data Processing Automation (GMV tracking)</div>
+                    <div class="solution-feature"><span class="solution-feature-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Report Generation (template otomatis)</div>
+                </div>
+                <div class="solution-output">
+                    <div class="solution-output-title">Menghemat</div>
+                    <div class="solution-output-list">
+                        <span class="solution-output-item">20-30 jam/minggu → &lt;1 jam</span>
+                        <span class="solution-output-item">Auto Alert Active</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-card-header">
+                    <div class="solution-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                    <div>
+                        <span class="solution-module-tag">Module 4</span>
+                        <h3 class="solution-name">Cekat AI Setup & Optimization</h3>
+                        <span class="solution-price">Rp 13 Juta</span>
+                    </div>
+                </div>
+                <p class="solution-desc">Setup CRM WhatsApp dengan AI yang hemat kredit. Dengan arsitektur 90% logic + 10% AI, kredit bisa hemat hingga 90%.</p>
+                <div class="solution-features">
+                    <div class="solution-feature"><span class="solution-feature-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Cekat AI Architecture (flow design, logic setup)</div>
+                    <div class="solution-feature"><span class="solution-feature-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>AI Knowledge Base (product knowledge, FAQ)</div>
+                    <div class="solution-feature"><span class="solution-feature-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>WABA Integration (WhatsApp Business API)</div>
+                </div>
+                <div class="solution-output">
+                    <div class="solution-output-title">Penghematan Kredit</div>
+                    <div class="solution-output-list">
+                        <span class="solution-output-item">Rp 150jt → Rp 5-10jt/bulan</span>
+                        <span class="solution-output-item">AI 24/7 Active</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="solutions-note">
+            <div class="solutions-note-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                Fleksibilitas Pemilihan Module
+            </div>
+            <p class="solutions-note-text">
+                Tidak harus ambil semua module. Anda bisa memilih kombinasi yang sesuai budget dan prioritas:<br>
+                • <strong>Module 1+2:</strong> Rp 30 Juta (Data + Dashboard saja)<br>
+                • <strong>Module 1+2+3:</strong> Rp 42 Juta (Tanpa Cekat AI)<br>
+                • <strong>All Modules:</strong> Rp 55 Juta (Rekomendasi untuk transformasi penuh)<br><br>
+                <em>Mari diskusikan kebutuhan spesifik Tiento untuk menentukan kombinasi terbaik.</em>
+            </p>
+        </div>
+    </div>
+</section>
