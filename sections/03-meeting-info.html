@@ -26,8 +26,11 @@
     .meeting-context-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(212, 168, 83, 0.15); border-radius: var(--radius-sm); color: var(--accent); }
     .meeting-context-text { font-size: 16px; color: var(--text-secondary); line-height: 1.8; }
     .meeting-context-highlight { display: inline; padding: 2px 8px; background: var(--cream); border-radius: 4px; color: var(--primary); font-weight: 500; }
-    .meeting-download-btn { display: inline-flex; align-items: center; gap: 10px; margin-top: 24px; padding: 14px 24px; background: var(--primary); color: white; font-size: 14px; font-weight: 600; border-radius: var(--radius-md); text-decoration: none; transition: var(--transition-medium); }
+    .meeting-download-btns { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+    .meeting-download-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; background: var(--primary); color: white; font-size: 14px; font-weight: 600; border-radius: var(--radius-md); text-decoration: none; transition: var(--transition-medium); }
     .meeting-download-btn:hover { background: var(--moss); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .meeting-download-btn.secondary { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
+    .meeting-download-btn.secondary:hover { background: var(--primary); color: white; }
     @media (max-width: 768px) { .meeting-info-grid { grid-template-columns: 1fr; } }
 </style>
 
@@ -39,7 +42,7 @@
                 Resume Meeting
             </div>
             <h2 class="meeting-info-title">Diskusi Strategis</h2>
-            <p class="meeting-info-subtitle">Otomatisasi Proses Bisnis dan Manajemen Afiliasi Menggunakan AI</p>
+            <p class="meeting-info-subtitle">Otomatisasi Proses Bisnis dan Manajemen Afiliasi Menggunakan AI — Meeting 3 Feb (Online) & 9 Feb (Demo Offline)</p>
         </div>
         <div class="meeting-info-grid">
             <div class="meeting-company-card">
@@ -65,12 +68,20 @@
                 </div>
                 <div class="meeting-members">
                     <div class="meeting-member">
-                        <div class="meeting-member-avatar tiento">L</div>
-                        <div><div class="meeting-member-name">Mas Lutfi</div><div class="meeting-member-position">Divisi Sales</div></div>
+                        <div class="meeting-member-avatar tiento">ZH</div>
+                        <div><div class="meeting-member-name">Zulfahmi Hendra</div><div class="meeting-member-position">Founder Tiento</div></div>
                     </div>
                     <div class="meeting-member">
-                        <div class="meeting-member-avatar tiento">A</div>
-                        <div><div class="meeting-member-name">Mbak Amelia</div><div class="meeting-member-position">Divisi Affiliate</div></div>
+                        <div class="meeting-member-avatar tiento">MH</div>
+                        <div><div class="meeting-member-name">Muhammad Haikal</div><div class="meeting-member-position">CEO Tiento</div></div>
+                    </div>
+                    <div class="meeting-member">
+                        <div class="meeting-member-avatar tiento">ML</div>
+                        <div><div class="meeting-member-name">Muhammad Lutfi Lazuardi</div><div class="meeting-member-position">General Manager Commercial</div></div>
+                    </div>
+                    <div class="meeting-member">
+                        <div class="meeting-member-avatar tiento">W</div>
+                        <div><div class="meeting-member-name">Windi</div><div class="meeting-member-position">HR Manager</div></div>
                     </div>
                 </div>
             </div>
@@ -80,11 +91,17 @@
                 <div class="meeting-context-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
                 Latar Belakang
             </h3>
-            <p class="meeting-context-text"><strong>Tiento</strong> adalah brand apparel sport yang sedang dalam fase scaling bisnis dan ingin melakukan <span class="meeting-context-highlight">shifting ke model affiliate</span> dengan proporsi yang lebih besar. Tim berkonsultasi dengan <strong>Flexeet</strong> (perusahaan jasa AI & Automation milik Mas Aji yang juga owner Hijacket) untuk mencari solusi otomatisasi proses bisnis mereka.</p>
-            <a href="resume-meeting-tiento.pdf" download class="meeting-download-btn" target="_blank">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Download Resume Meeting (PDF)
-            </a>
+            <p class="meeting-context-text"><strong>Tiento</strong> adalah brand apparel sport yang sedang dalam fase scaling bisnis. Pada meeting pertama (3 Feb), tim mendiskusikan <span class="meeting-context-highlight">shifting ke model affiliate</span> dan otomatisasi sales. Pada meeting demo offline (9 Feb), scope diperluas ke <span class="meeting-context-highlight">seluruh divisi</span> — termasuk HR, Production, Marketing, Ads, dan kebutuhan Central Dashboard serta Personal AI Assistant untuk seluruh tim.</p>
+            <div class="meeting-download-btns">
+                <a href="resume-meeting-tiento.pdf" download class="meeting-download-btn" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Resume Meeting 1 (3 Feb)
+                </a>
+                <a href="resume-meeting-2-tiento.pdf" download class="meeting-download-btn secondary" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Resume Meeting 2 (9 Feb)
+                </a>
+            </div>
         </div>
     </div>
 </section>
